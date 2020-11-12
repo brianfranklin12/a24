@@ -7,14 +7,14 @@ class A24::CLI
   def menu
     system("clear") 
     puts "Welcome to the A24 Movies App! What would you like to do? "
-    puts "-- Type 'list' to list all A24 films."
-    puts "-- Type 'recommend' to recommend a movie from the list."
-    puts "-- Type 'info' to get more info on a specific movie."
-    puts "-- Type 'exit' to exit the program."
 
     input = nil
 
     while input != "exit"
+      puts "-- Type 'list' to list all A24 films."
+      puts "-- Type 'recommend' to recommend a movie from the list."
+      puts "-- Type 'info' to get more info on a specific movie."
+      puts "-- Type 'exit' to exit the program."
       input = gets.strip.downcase
       case input
       when "list"
@@ -24,7 +24,9 @@ class A24::CLI
       when "recommend"
         puts A24::Scraper.create_film_list.sample
       when "exit"
-        puts "have a great day!!"
+        puts "Have a great day!!"
+      else
+        puts "I didn't understand your request."
       end
     end
   end
