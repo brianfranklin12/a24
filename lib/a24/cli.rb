@@ -15,6 +15,7 @@ class A24::CLI
       puts "-- Type 'recommend' to recommend a movie from the list."
       puts "-- Type 'info' to get more info on a specific movie."
       puts "-- Type 'exit' to exit the program."
+      puts ""
       input = gets.strip.downcase
       case input
       when "list"
@@ -23,15 +24,13 @@ class A24::CLI
         end
       when "recommend"
         sample = A24::Film.all.sample
-        A24::Scraper.get_info(sample)
-        sample.display_info
+        A24::Film.get_info_or_display_info(sample)
       when "info"
         puts "Enter the name of the film you want more info on: "
         name = gets.strip.downcase
         A24::Film.all.each do |film|
           if film.title.downcase == name
-            A24::Scraper.get_info(film)
-            film.display_info
+            A24::Film.get_info_or_display_info(film)
           end
         end
       when "exit"

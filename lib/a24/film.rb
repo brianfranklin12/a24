@@ -16,7 +16,8 @@ class A24::Film
   def self.get_info_or_display_info(film)
 
     if film.description == nil 
-      A24::Scraper(film)
+      A24::Scraper.get_info(film)
+      film.display_info
     else
       film.display_info
     end
