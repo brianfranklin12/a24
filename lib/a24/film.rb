@@ -1,15 +1,11 @@
 class A24::Film
-  attr_accessor :title, :year, :director, :writer, :description
+  attr_accessor :title, :url, :year, :director, :writer, :description
 
   @@all = []
 
-  def initialize(url)
-
-    doc = Nokogiri::HTML(open(url))
-    @title = doc.search("h1.title").first.text.strip
-    @year = doc.search("div.release-date h3").text.strip
-    @director = doc.search("h3.content").first.text.strip
-    @description = doc.search("div.synopsis p").text.strip
+  def initialize(title, url)
+    @title = title
+    @url = url
     @@all << self 
   end
 
@@ -18,5 +14,11 @@ class A24::Film
   end
 
 
+  def display_info
+    puts self.title
+    puts self.year
+    puts self.director
+    puts self.description
+  end
 
 end

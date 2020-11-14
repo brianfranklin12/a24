@@ -18,11 +18,20 @@ class A24::CLI
       input = gets.strip.downcase
       case input
       when "list"
-        A24::Scraper.create_film_list.each.with_index(1) do |film, i|
-          puts "#{i}. #{film}"
-      end
+        A24::Film.all.each.with_index(1) do |film, i|
+          puts "#{i}. #{film.title}"
+        end
       when "recommend"
-        puts A24::Scraper.create_film_list.sample
+        puts A24::Film.all.sample.title
+      when "info"
+        puts "Enter the name of the film you want more info on: "
+        name = gets.strip.downcase
+        A24::Film.all.each do |film|
+          if film.title.downcase == name
+            A24::Scraper.get_info(film)
+            film.display_info
+          end
+        end
       when "exit"
         puts "Have a great day!!"
       else
