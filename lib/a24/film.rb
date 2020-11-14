@@ -13,12 +13,18 @@ class A24::Film
     @@all
   end
 
-
+  
   def display_info
-    puts self.title
-    puts self.year
-    puts self.director
-    puts self.description
+    puts ""
+    puts "------------------------------------------------------------"
+    puts "Title: #{self.title}"
+    puts "Released #{self.year}"
+    puts "Directed by #{self.director}"
+    puts ""
+    puts "Description: #{self.description}"
+    puts "------------------------------------------------------------"
+    puts ""
+
   end
 
 end
