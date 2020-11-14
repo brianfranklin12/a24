@@ -13,7 +13,15 @@ class A24::Film
     @@all
   end
 
-  
+  def self.get_info_or_display_info(film)
+
+    if film.description == nil 
+      A24::Scraper(film)
+    else
+      film.display_info
+    end
+  end
+
   def display_info
     puts ""
     puts "------------------------------------------------------------"

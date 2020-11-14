@@ -22,7 +22,9 @@ class A24::CLI
           puts "#{i}. #{film.title}"
         end
       when "recommend"
-        puts A24::Film.all.sample.title
+        sample = A24::Film.all.sample
+        A24::Scraper.get_info(sample)
+        sample.display_info
       when "info"
         puts "Enter the name of the film you want more info on: "
         name = gets.strip.downcase
