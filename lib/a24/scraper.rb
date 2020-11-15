@@ -10,7 +10,7 @@ class A24::Scraper
 
   def self.get_info(film)
     doc = Nokogiri::HTML(open(film.url))
-    film.year = doc.search("div.release-date h3").text.strip
+    film.year = doc.search("div.release-date h3").first.text.strip
     film.director = doc.search("h3.content").first.text.strip
     film.description = doc.search("div.synopsis p").text.strip
   end
