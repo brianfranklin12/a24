@@ -4,11 +4,11 @@ This Ruby CLI Application is used to scrape the films released by film distribut
 
 ## Installation
 
-Go to https://github.com/brianfranklin12/a24
+Go to https://github.com/brianfranklin12/a24.
 
-Fork the project
+Fork the project.
 
-Grab the SSH address for the file and use git clone to copy the files to a directory on your computer
+Grab the SSH address for the file and use git clone to copy the files to a directory on your computer.
 
 Once the project is cloned, go to that project file.
 
@@ -22,3 +22,7 @@ Type exit when you are finished!!
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/brianfranklin12/a24.
+
+## License
+
+The CLI app is available as open source under the terms of the MIT License.
